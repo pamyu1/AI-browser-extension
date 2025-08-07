@@ -12,18 +12,24 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Load model (choose small for now) - commented out since we're using fallback logic
-# generator = pipeline("text2text-generation", model="lvwerra/codeparrot-small")
+# Load model (choose small for now)
+generator = pipeline("text-generation", model="lvwerra/codeparrot-small")
 
 @app.get("/generate")
 def generate_code(prompt: str = Query(...)):
-    # For testing: always return working JS for button color change
-    if "button" in prompt.lower() and "blue" in prompt.lower():
-        code = "document.querySelectorAll('button').forEach(btn => btn.style.backgroundColor = 'blue');"
-    elif "background" in prompt.lower() and "blue" in prompt.lower():
-        code = "document.body.style.backgroundColor = 'blue';"
-    elif "button" in prompt.lower() and "color" in prompt.lower():
-        code = "document.querySelectorAll('button').forEach(btn => btn.style.backgroundColor = 'red');"
-    else:
-        code = "console.log('Generated code: " + prompt + "');"
+    try:
+        # Try to use AI model first
+        result = generator(f"// {prompt}\n", max_length=50, num_return_sequences=1, do_sample=True)
+        code = result[0]['generated_text'].replace(f"// {prompt}\n", "").strip()
+    except Exception as e:
+        # Fallback to pattern matching if AI model fails
+        print(f"AI model failed: {e}, using fallback")
+        if "button" in prompt.lower() and "blue" in prompt.lower():
+            code = "document.querySelectorAll('button').forEach(btn => btn.style.backgroundColor = 'blue');"
+        elif "background" in prompt.lower() and "blue" in prompt.lower():
+            code = "document.body.style.backgroundColor = 'blue';"
+        elif "button" in prompt.lower() and "color" in prompt.lower():
+            code = "document.querySelectorAll('button').forEach(btn => btn.style.backgroundColor = 'red');"
+        else:
+            code = "console.log('Generated code: " + prompt + "');"
     return {"code": code}
