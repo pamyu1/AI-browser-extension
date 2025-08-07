@@ -142,4 +142,4 @@ If you encounter any issues, please open an issue on GitHub or contact the maint
 
 ---
 
-**Made with ❤️**
+**Made with ❤️ & Jarvis**
