@@ -18,8 +18,15 @@ generator = pipeline("text-generation", model="lvwerra/codeparrot-small")
 @app.get("/generate")
 def generate_code(prompt: str = Query(...)):
     try:
-        # Try to use AI model first
-        result = generator(f"// {prompt}\n", max_length=50, num_return_sequences=1, do_sample=True)
+        # Try to use AI model first - optimized for speed
+        result = generator(
+            f"// {prompt}\n", 
+            max_new_tokens=30,  # Limit new tokens for faster generation
+            num_return_sequences=1, 
+            do_sample=False,  # Disable sampling for faster generation
+            truncation=True,  # Explicitly enable truncation
+            pad_token_id=50256  # Set pad token to avoid warnings
+        )
         code = result[0]['generated_text'].replace(f"// {prompt}\n", "").strip()
     except Exception as e:
         # Fallback to pattern matching if AI model fails
