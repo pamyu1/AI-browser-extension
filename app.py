@@ -12,8 +12,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Load model (choose small for now)
-generator = pipeline("text2text-generation", model="lvwerra/codeparrot-small")
+# Load model (choose small for now) - commented out since we're using fallback logic
+# generator = pipeline("text2text-generation", model="lvwerra/codeparrot-small")
 
 @app.get("/generate")
 def generate_code(prompt: str = Query(...)):

@@ -46,8 +46,8 @@ capstoneApp/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/ai-browser-extension.git
-cd ai-browser-extension
+git clone https://github.com/pamyu1/AI-browser-extension.git
+cd AI-browser-extension
 ```
 
 ### 2. Install Python Dependencies
