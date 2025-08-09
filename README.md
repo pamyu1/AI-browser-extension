@@ -2,7 +2,7 @@
 
 An intelligent browser extension that uses AI to modify webpages with natural language commands.
 
-## 🌟 Features
+### 🌟 Features
 
 ### 🎨 Color Commands
 - Change button colors: `change button color to blue`
@@ -22,14 +22,14 @@ An intelligent browser extension that uses AI to modify webpages with natural la
 ### 🔄 Reset
 - Reset styles: `normal text`, `reset text`
 
-## 🛠️ Technology Stack
+### 🛠️ Technology Stack
 
 - **Frontend**: Chrome Extension (Manifest v3)
 - **Backend**: FastAPI + Python
 - **AI Model**: Hugging Face Transformers (CodeParrot)
 - **Languages**: JavaScript, Python, HTML
 
-## 📁 Project Structure
+### 📁 Project Structure
 
 ```
 capstoneApp/
@@ -42,7 +42,7 @@ capstoneApp/
 └── test.html               # Test page for development
 ```
 
-## 🚀 Installation & Setup
+### 🚀 Installation & Setup
 
 ### 1. Clone the Repository
 ```bash
@@ -66,7 +66,7 @@ python3 -m uvicorn app:app --reload --port 8000
 3. Click "Load unpacked"
 4. Select the `extension` folder
 
-## 🎯 Usage
+### 🎯 Usage
 
 1. **Start the backend server** (see installation step 3)
 2. **Open any website**
@@ -78,14 +78,14 @@ python3 -m uvicorn app:app --reload --port 8000
    - `make text bold`
 5. **Click "Generate"** and watch the magic happen!
 
-## 🧪 Testing
+### 🧪 Testing
 
 Use the included `test.html` file to test all features:
 ```bash
 open test.html
 ```
 
-## 🔧 Development
+### 🔧 Development
 
 ### Backend API
 - **Endpoint**: `GET /generate?prompt={your_command}`
@@ -97,7 +97,7 @@ open test.html
 - Manifest v3 compliant
 - CORS enabled for local development
 
-## 📝 Supported Commands
+### 📝 Supported Commands
 
 | Category | Examples |
 |----------|----------|
@@ -108,10 +108,10 @@ open test.html
 | **Alignment** | `center text`, `left text`, `right text` |
 | **Size** | `make text bigger`, `make text smaller` |
 
-## 🎨 Supported Colors
+### 🎨 Supported Colors
 red, blue, green, yellow, purple, orange, pink, black, white, gray, brown, cyan, magenta, lime, navy, maroon, olive, teal, silver, gold
 
-## 🤝 Contributing
+### 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature-name`
@@ -119,11 +119,11 @@ red, blue, green, yellow, purple, orange, pink, black, white, gray, brown, cyan,
 4. Push to branch: `git push origin feature-name`
 5. Submit a Pull Request
 
-## 📄 License
+### 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 🚀 Future Enhancements
+### 🚀 Future Enhancements
 
 - [ ] Support for more AI models
 - [ ] Advanced CSS animations
@@ -131,12 +131,12 @@ This project is open source and available under the [MIT License](LICENSE).
 - [ ] Save/load custom commands
 - [ ] Multi-language support
 
-## 🐛 Known Issues
+### 🐛 Known Issues
 
 - Some websites with strict Content Security Policy may block script injection
 - HTTPS sites may have issues with HTTP localhost backend
 
-## 📞 Support
+### 📞 Support
 
 If you encounter any issues, please open an issue on GitHub or contact the maintainer.
 
