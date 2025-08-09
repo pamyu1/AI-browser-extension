@@ -1,4 +1,4 @@
-# AI-Powered Page Tweaker Extension
+## AI-Powered Page Tweaker Extension
 
 An intelligent browser extension that uses AI to modify webpages with natural language commands.
 
